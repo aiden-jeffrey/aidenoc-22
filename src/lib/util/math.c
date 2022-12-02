@@ -15,3 +15,11 @@ int int_pow(int base, int exp)
 
     return result;
 }
+
+int mod(int a, int b)
+{
+	int result = a % b;
+	if (result < 0) result += b;
+
+	return result;
+}

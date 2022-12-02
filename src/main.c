@@ -15,6 +15,7 @@ typedef bool (*day_cb)(unsigned, const char *);
 static const day_cb days[] =
 {
 	day_1,
+	day_2,
 };
 
 static struct
@@ -49,10 +50,14 @@ static bool run_day(const uint64_t *day_num)
 				? "Error: christmas overflow\n"
 				: "Error: day %lu isn't done yet!\n";
 		fprintf(stderr, warning, *day_num);
-		return false;
-	}
+		globals.success = false;
 
-	globals.success = day(0, globals.input_filename) && day(1, globals.input_filename);
+		fprintf(stderr, "num days: %u\n", globals.num_days);
+	}
+	else
+	{
+		globals.success = day(0, globals.input_filename) && day(1, globals.input_filename);
+	}
 
 	return true;
 }
