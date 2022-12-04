@@ -1,7 +1,7 @@
 # advent of code 2022
 
 - [x] c ([1](src/days/day_1.c), [2](src/days/day_2.c))
-- [x] python ([3](src/days/day_3/day_3.py))
+- [x] python ([3](src/days/day_3/day_3.py), [4](src/days/day_4/day_4.py))
 - [ ] haskell
 - [ ] nim
 - [ ] rust

@@ -6,5 +6,6 @@
 bool day_1(unsigned part, const char *input_filename);
 bool day_2(unsigned part, const char *input_filename);
 bool day_3(unsigned part, const char *input_filename);
+bool day_4(unsigned part, const char *input_filename);
 
 #endif
