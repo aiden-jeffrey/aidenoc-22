@@ -68,7 +68,6 @@ bool run_python(
 			Py_DECREF(pArgs);
 			if (pValue != NULL) {
 				long result = PyLong_AsLong(pValue);
-				printf("Result of call: %ld\n", result);
 				success = result != 0;
 				Py_DECREF(pValue);
 			}
