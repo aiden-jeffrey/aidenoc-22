@@ -9,8 +9,8 @@ CFLAGS_RELEASE  = -O3 -s -fexpensive-optimizations $(CFLAGS_COMMON)
 CFLAGS_DEBUG = -O0 -g $(CFLAGS_COMMON)
 LDFLAGS = $(shell python3-config --ldflags --embed) -lm
 
-SRC = $(shell find src -type f)
-CSRC = $(filter %.c, $(SRC))
+CSRC  = $(shell find src/c -type f)
+
 OBJ_RELEASE = $(patsubst src/%.c, .build/%.o, $(CSRC))
 DEP_RELEASE = $(patsubst src/%.c, .build/%.d, $(CSRC))
 OBJ_DEBUG = $(patsubst src/%.c, .build/debug/%.o, $(CSRC))

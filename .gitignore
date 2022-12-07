@@ -4,3 +4,4 @@ aidenoc-2022*
 *__pycache__*
 .cache/
 compile_commands.json
+dist-newstyle

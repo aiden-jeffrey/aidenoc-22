@@ -5,7 +5,7 @@
 bool day_4(unsigned part, const char *input_filename)
 {
 	return run_python(
-		"src/days/day_4/",
+		"src/python/days/",
 		"day_4",
 		"day_4",
 		part,

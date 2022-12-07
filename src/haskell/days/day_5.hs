@@ -39,7 +39,7 @@ replaceAt :: Int -> a -> [a] -> [a]
 replaceAt index elem l = pre ++ elem : post
     where (pre, _: post) = splitAt index l
 
-readLines :: FilePath -> IO [String]
+readLines :: String -> IO [String]
 readLines = fmap lines . readFile
 
 -- stack parser
@@ -100,9 +100,11 @@ movePart1 = mapAccumL moveIndividual
 movePart2 :: [Stack Char] -> [MoveInstruction] -> ([Stack Char], [String])
 movePart2 = mapAccumL moveStacks
 
-day5 :: String -> Int -> IO Bool
+day5 :: IO String -> Int -> IO Bool
 day5 filename part = do
-    lines <- readLines filename
+    filenameString <- filename
+    lines          <- (fmap lines . readFile) filenameString
+
     let (stackLines, moveLines) = splitAt (fromJust (elemIndex "" lines)) lines
     let cubes = map (map (!! 1) . chunksOf 4) (init stackLines)
 
@@ -118,7 +120,7 @@ day5 filename part = do
 
     return True
 
--- day_5_hs :: CString -> IO Bool
--- day_5_hs cstr = day5 (peekCString cstr)
+day_5_hs :: CString -> IO Bool
+day_5_hs cstr = day5 (peekCString cstr) 0
 
--- foreign export ccall day_5_hs :: CString -> IO Bool
+foreign export ccall day_5_hs :: CString -> IO Bool
