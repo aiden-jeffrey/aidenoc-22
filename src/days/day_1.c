@@ -11,7 +11,7 @@
 
 #define ELVES_MAX 1024
 
-static bool sum(const unsigned *elves, size_t elf_cnt);
+static bool part_1(const unsigned *elves, size_t elf_cnt);
 static bool part_2(unsigned *elves, size_t elf_cnt);
 
 bool day_1(unsigned part, const char *input_filename)
@@ -75,12 +75,12 @@ bool day_1(unsigned part, const char *input_filename)
 
 	return success
 		? (part == 0)
-			? sum(elves, elf_cnt)
+			? part_1(elves, elf_cnt)
 			: part_2(elves, elf_cnt)
 		: false;
 }
 
-static bool sum(const unsigned *elves, size_t elf_cnt)
+static bool part_1(const unsigned *elves, size_t elf_cnt)
 {
 	if (!elves || (elf_cnt == 0)) return false;
 

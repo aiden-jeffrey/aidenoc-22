@@ -73,8 +73,8 @@ static bool flag_input(const void *param);
 
 static const cliarg_flag_desc_t flags[] =
 {
+	{ 'i', "input" , CLIARG_ARG_TYPE_STRING, "input", "Input file" , true, (void *)flag_input },
 	{ 'h', "help" , CLIARG_ARG_TYPE_NONE, NULL, "Print usage" , true, (void *)flag_help },
-	{ 'i', "input" , CLIARG_ARG_TYPE_STRING, NULL, "Input file" , true, (void *)flag_input },
 	CLIARG_FLAG_DESC_EMPTY
 };
 

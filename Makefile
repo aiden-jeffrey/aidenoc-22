@@ -1,6 +1,8 @@
 BINARY_RELEASE = aidenoc-2022
 BINARY_DEBUG   = $(BINARY_RELEASE)-debug
 
+# gcc -Wall test.c -o test $(python3.10-config --ldflags --cflags --embed)
+
 PKG_CONFIG =
 
 INCLUDE = -I include
