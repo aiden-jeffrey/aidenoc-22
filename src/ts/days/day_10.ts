@@ -59,7 +59,6 @@ function run_program(
 		[complete, x] = active.tick(x);
 	}
 
-	console.log(`at program completion, x = ${x}`);
 	return true;
 }
 
@@ -106,6 +105,82 @@ function part_2(instructions: Instruction[]): boolean
 	return success;
 }
 
+function instructions_to_string(instructions: Instruction[]): string
+{
+	let str: string = "";
+	const cb = (cycle: number, x: number) =>
+	{
+		const pos = (cycle - 1) % 40;
+		str += (pos >= x - 1 && pos <= x + 1)
+			? "#"
+			: ".";
+	}
+	run_program(instructions, cb);
+	return str;
+}
+
+function generate_instruction(
+	print_out:    string,
+	index:        number,
+	instructions: Instruction[]): Instruction[] | undefined
+{
+	for (let i = 0; i < 3; i++)
+	{
+		let new_instr: Instruction[];
+		switch (i) {
+			case 0:
+				new_instr = [...instructions, new Noop()];
+				break;
+				break;
+			case 1:
+				new_instr = [...instructions, new Addx(5)];
+				break;
+			case 2:
+				new_instr = [...instructions, new Addx(-5)];
+				break;
+
+			default:
+				new_instr = [...instructions];
+				break;
+		}
+
+		const test    = instructions_to_string(new_instr);
+		const against = print_out.slice(0, index);
+
+		if (test == against)
+		{
+			console.log(`${index} ${test}`, new_instr)
+			const generated = generate_instruction(print_out, index + 1, new_instr);
+			if (generated)
+			{
+				return generated;
+			}
+			// else
+			// {
+			// 	return false;
+			// }
+		}
+		else if (test.length < against.length)
+		{
+			const generated = generate_instruction(print_out, index, new_instr);
+			if (generated)
+			{
+				return generated;
+			}
+		}
+	}
+
+	// instructions.push(new Noop());
+	return undefined;
+}
+
+function part_3(print_out: string): boolean
+{
+	const instructions = generate_instruction(print_out, 0, []);
+	console.log("instructions:", instructions);
+	return instructions != undefined;
+}
+
 function day_10(filename: string, part: number): boolean
 {
 	let data: string;
@@ -118,7 +193,14 @@ function day_10(filename: string, part: number): boolean
 
 	const instructions = data.split("\n").map(parse_line).reverse();
 
-	return part === 0 ? part_1(instructions) : part_2(instructions);
+	if (part === 0)
+		return part_1(instructions);
+	else if (part == 1)
+		return part_2(instructions);
+	else if (part == 2)
+		return part_3(data.replace("\n", ""));
+	else
+		return false;
 }
 
 function main()
