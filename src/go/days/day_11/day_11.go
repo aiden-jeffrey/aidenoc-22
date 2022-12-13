@@ -124,7 +124,14 @@ func run_round(monkeys []Monkey, divide bool, prime_product int) {
 
 func print_round(monkeys []Monkey) {
 	for _, monkey := range monkeys {
-		fmt.Println(monkey.id, monkey.items)
+		fmt.Print(monkey.id, " [")
+		for i, item := range monkey.items {
+			fmt.Print(*item)
+			if i < len(monkey.items)-1 {
+				fmt.Print(", ")
+			}
+		}
+		fmt.Print("]\n")
 	}
 	fmt.Println("------")
 }
