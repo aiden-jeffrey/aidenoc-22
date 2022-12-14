@@ -6,10 +6,10 @@
 - [x] nim ([7](src/nim/days/day_7.nim), [8](src/nim/days/day_8.nim))
 - [x] typescript ([9](src/ts/days/day_9.ts), [10](src/ts/days/day_10.ts))
 - [x] go ([11](src/go/days/day_11/day_11.go), [12](src/go/days/day_12/day_12.go))
+- [x] lua ([13](src/lua/day_13.lua), [14](src/lua/day_14.lua))
 - [ ] rust
 - [ ] haxe
 - [ ] x86 assembly https://cs.lmu.edu/~ray/notes/nasmtutorial/
 - [ ] c++ (cheating?)
 - [ ] ocaml
-- [ ] lua
 - [ ] c#
