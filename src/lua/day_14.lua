@@ -175,9 +175,8 @@ local function make_rocks(lines)
                     max[j] = tokens[i][j]
                 end
             end
-
-            rocks[#rocks + 1] = tokens
         end
+        rocks[#rocks + 1] = tokens
     end
 
     return rocks, min, max
