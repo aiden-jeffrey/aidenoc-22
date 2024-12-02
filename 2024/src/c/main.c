@@ -12,6 +12,7 @@ typedef bool (*day_cb)(unsigned, const char *);
 static const day_cb days[] =
 {
 	day_1,
+	day_2,
 };
 
 static struct
