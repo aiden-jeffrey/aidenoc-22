@@ -26,7 +26,7 @@ bool day_1(unsigned part, const char *input_filename)
 	}
 	fprintf(stdout, "Running part %u with %s...\n", part, input_filename);
 
-	// read file
+	// read filemax_oper
 	int fd = open(input_filename, O_RDONLY);
 	if (fd < 0) return false;
 

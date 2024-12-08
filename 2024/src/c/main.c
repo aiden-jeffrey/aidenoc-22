@@ -13,6 +13,8 @@ static const day_cb days[] =
 {
 	day_1,
 	day_2,
+	day_3,
+	day_4,
 };
 
 static struct

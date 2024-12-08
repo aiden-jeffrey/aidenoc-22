@@ -1,0 +1,20 @@
+[package]
+name = "rust"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[[bin]]
+name = "day_5"
+path = "src/rust/day_5.rs"
+
+
+[[bin]]
+name = "day_6"
+path = "src/rust/day_6.rs"
+
+
+[[bin]]
+name = "day_7"
+path = "src/rust/day_7.rs"

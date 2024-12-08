@@ -26,8 +26,9 @@ bool parse_int(const char **string, int *out)
 
 	*out = sign * temp;
 
+	bool parsed = *string != tstr;
 	*string = tstr;
-	return true;
+	return parsed;
 }
 
 bool parse_double(const char **string, double *out)
